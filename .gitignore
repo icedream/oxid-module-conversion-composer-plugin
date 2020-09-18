@@ -1,0 +1,4 @@
+vendor/
+composer.lock
+.ide-helper.php
+.phpstorm.meta.php/oxid.meta.php

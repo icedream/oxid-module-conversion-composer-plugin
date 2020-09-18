@@ -1,0 +1,32 @@
+{
+  "name": "icedream/oxid-module-conversion-composer-plugin",
+  "type": "composer-plugin",
+  "config": {
+    "no-plugins": true
+  },
+  "description": "Install OXID eShop modules that have not been made available for Composer yet via Composer.",
+  "require": {
+    "composer-plugin-api": "^1.1 || ^2.0",
+    "oxid-esales/oxideshop-ce": "^6.5.0",
+    "jawira/case-converter": "^3.4"
+  },
+  "extra": {
+    "class": "Icedream\\Composer\\Custom\\CustomPlugin"
+  },
+  "autoload": {
+    "psr-4": {
+      "Icedream\\Composer\\Custom\\": "src/"
+    }
+  },
+  "require-dev": {
+    "composer/composer": "*",
+    "oxid-esales/oxideshop-unified-namespace-generator": "^2.0",
+    "oxid-esales/oxideshop-ide-helper": "^3.1"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "if [ -f vendor/bin/oe-eshop-unified_namespace_generator ]; then oe-eshop-unified_namespace_generator; fi",
+      "if [ -f vendor/bin/oe-eshop-ide_helper ]; then oe-eshop-ide_helper; fi"
+    ]
+  }
+}
